@@ -1,0 +1,10 @@
+<div class="container">
+    <h1>Pàgina inicial</h1>
+</div>
+
+<div class="container">
+    <button type="button" class="btn btn-primary mr-1" [routerLink]="['/public']">Pàgina pública</button>
+    <button type="button" class="btn btn-primary mr-1" [routerLink]="['/private']">Pàgina privada</button>
+    <button type="button" class="btn btn-primary mr-1" *ngIf="user == null" [routerLink]="['/login']">Inici de sessió</button>
+    <button type="button" class="btn btn-primary mr-1" *ngIf="user != null" [routerLink]="['/logout']">Tancament de sessió</button>
+</div>
