@@ -14,22 +14,25 @@ export class PrivateComponent implements OnInit {
 
   constructor() {
     this.editorConfig = {
-      toolbar: [
-        'heading', 'horizontalLine', '|',
-        'bold', 'italic', 'strikethrough', 'underline', 'subscript', 'superscript', 'link', 'bulletedList', 'numberedList', 'todoList', '|',
-        'fontBackgroundColor', 'fontColor', 'fontsize', 'fontfamily', 'highlight', '|',
-        'alignment', 'indent', 'outdent', '|',
-        'code', 'codeBlock', 'htmlEmbed', '|',
-        '-', // break point
-        'ckfinder', 'imageUpload', 'imageInsert', 'blockQuote', 'insertTable', 'mediaEmbed', 'undo', 'redo', '|',
-        'MathType', 'ChemType', 'specialCharacters'       
-      ],
-      image: {
-        toolbar: [
-            'imageStyle:full', 'imageStyle:side', '|',
-            'imageTextAlternative'
-        ],
-        styles: ['full', 'side']
+      toolbar: {
+          items: [
+            'heading', 'horizontalLine', '|',
+            'bold', 'italic', 'strikethrough', 'underline', 'subscript', 'superscript', 'link', 'bulletedList', 'numberedList', 'todoList', '|',
+            'fontBackgroundColor', 'fontColor', 'fontsize', 'fontfamily', 'highlight', '|',
+            'alignment', 'indent', 'outdent', '|',
+            'code', 'codeBlock', 'htmlEmbed', '|',
+            //'-', // break point
+            'ckfinder', 'imageUpload', 'imageInsert', 'blockQuote', 'insertTable', 'mediaEmbed', 'undo', 'redo', '|',
+            'MathType', 'ChemType', 'specialCharacters'       
+          ],
+          shouldNotGroupWhenFull: true
+        },
+        image: {
+          toolbar: [
+              'imageStyle:full', 'imageStyle:side', '|',
+              'imageTextAlternative'
+          ],
+          styles: ['full', 'side']
       }
     }
   }
