@@ -10,6 +10,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { PublicComponent } from './pages/public/public.component';
 import { PrivateComponent } from './pages/private/private.component';
+import { ScullyLibModule } from '@scullyio/ng-lib';
+import { DetailsComponent } from './pages/public/details/details.component';
 
 @NgModule({
   declarations: [
@@ -18,12 +20,14 @@ import { PrivateComponent } from './pages/private/private.component';
     LoginComponent,
     LogoutComponent,
     PublicComponent,
-    PrivateComponent
+    PrivateComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    ScullyLibModule
   ],
   providers: [],
   bootstrap: [AppComponent]

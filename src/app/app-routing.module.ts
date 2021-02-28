@@ -8,6 +8,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { PrivateComponent } from './pages/private/private.component';
 import { PublicComponent } from './pages/public/public.component';
+import { DetailsComponent } from './pages/public/details/details.component';
 
 const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
@@ -17,7 +18,11 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectLoggedInToHome }},
   {path: 'logout', component: LogoutComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }},
-  {path: 'public', component: PublicComponent},
+  {path: 'public', children: [
+      {path: '', component: PublicComponent},
+      {path: ':id', component: DetailsComponent}
+    ]
+  },
   {path: 'private', component: PrivateComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }},
 ];
 
