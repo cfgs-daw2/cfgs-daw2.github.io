@@ -6,3 +6,7 @@
     <button type="button" class="btn btn-primary mr-1" [routerLink]="['/home']">Pàgina principal</button>
     <button type="button" class="btn btn-primary mr-1" [routerLink]="['/public']">Pàgina pública</button>
 </div>
+
+<div class="container">
+    <ckeditor [editor]="textEditor" [config]="editorConfig" [(ngModel)]="editorData" (click)="checkText()"></ckeditor>
+</div>
