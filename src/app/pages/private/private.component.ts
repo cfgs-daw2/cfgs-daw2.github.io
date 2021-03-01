@@ -12,6 +12,8 @@ export class PrivateComponent implements OnInit {
   public editorData: string = "";
   public editorConfig: any = {};
 
+  public tags: string = "";
+
   constructor() {
     this.editorConfig = {
       toolbar: {
@@ -42,6 +44,15 @@ export class PrivateComponent implements OnInit {
 
   checkText() {
     console.log(this.editorData);
+  }
+
+  saveData() {
+
+  }
+
+  resetData() {
+    this.editorData = "";
+    this.tags = "";
   }
 
 }

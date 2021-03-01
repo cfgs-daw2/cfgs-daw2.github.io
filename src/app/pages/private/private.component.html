@@ -7,6 +7,11 @@
     <button type="button" class="btn btn-primary mr-1" [routerLink]="['/public']">Pàgina pública</button>
 </div>
 
-<div class="container">
+<div class="container mt-1">
     <ckeditor [editor]="textEditor" [config]="editorConfig" [(ngModel)]="editorData" (click)="checkText()"></ckeditor>
+
+    <input type=text [(ngModel)]="tags">
+
+    <button type="button" class="btn btn-primary mr-1" (click)="saveData()">Guardar</button>
+    <button type="button" class="btn btn-primary" (click)="resetData()">Reiniciar</button>
 </div>

@@ -6,3 +6,9 @@
     <button type="button" class="btn btn-primary mr-1" [routerLink]="['/home']">Pàgina principal</button>
     <button type="button" class="btn btn-primary mr-1" [routerLink]="['/private']">Pàgina privada</button>
 </div>
+
+<div class="container mt-1">
+    <div *ngFor="port of protfolio">
+        {{port}}
+    </div>
+</div>
