@@ -8,7 +8,9 @@
 </div>
 
 <div class="container mt-1">
-    <div *ngFor="port of protfolio">
-        {{port}}
+    <div *ngFor="let port of portfolio">
+        <h1>{{ port.title }}</h1>
+        <small>{{ port.tags }}</small>
+        <div class="container ck-content border border-dark" [innerHTML]="port.content"></div>
     </div>
 </div>

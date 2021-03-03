@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FirebaseDBService } from 'src/app/services/firebasedb.service';
 
 import * as ClassicEditor from '../../../ckeditor5/build/ckeditor';
 
@@ -12,9 +14,10 @@ export class PrivateComponent implements OnInit {
   public editorData: string = "";
   public editorConfig: any = {};
 
+  public title: string = "";
   public tags: string = "";
 
-  constructor() {
+  constructor(private firedb: FirebaseDBService, private router: Router) {
     this.editorConfig = {
       toolbar: {
           items: [
@@ -47,10 +50,13 @@ export class PrivateComponent implements OnInit {
   }
 
   saveData() {
-
+    this.firedb.addPortfolioElement(this.title, this.editorData, this.tags);
+    this.resetData();
+    this.router.navigate(['/public']);
   }
 
   resetData() {
+    this.title = "";
     this.editorData = "";
     this.tags = "";
   }

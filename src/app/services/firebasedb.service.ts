@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { AngularFirestore } from '@angular/fire/firestore';
+import { title } from 'process';
 
 @Injectable({
   providedIn: 'root'
@@ -25,14 +26,15 @@ export class FirebaseDBService {
    * PORTFOLIO CONTENT MANAGEMENT
    */
   getPortfolio(): Observable<any[]> {
-    return this.firestore.collection("portolio").valueChanges();
+    return this.firestore.collection("portfolio").valueChanges();
   }
 
-  addPortfolioElement(data: string, tagsStr: string) {
+  addPortfolioElement(title: string, data: string, tagsStr: string) {
     let tags: string[];
     tags = tagsStr.split(' ');
 
     this.firestore.collection("portfolio").add({
+        title: title,
         content: data,
         tags: tags
       }

@@ -8,9 +8,22 @@
 </div>
 
 <div class="container mt-1">
-    <ckeditor [editor]="textEditor" [config]="editorConfig" [(ngModel)]="editorData" (click)="checkText()"></ckeditor>
+    <div class="form-group">
+        <label for="titleInput">Títol</label>
+        <input type="text" class="form-control" id="titleInput" aria-describedby="titleHelp" [(ngModel)]="title">
+        <small id="titleHelp" class="form-text text-muted">Títol de la pràctica</small>
+    </div>
+    <div class="form-group">
+        <label for="contentTextarea">Contingut</label>
+        <ckeditor [editor]="textEditor" [config]="editorConfig" [(ngModel)]="editorData" (click)="checkText()" id="contentTextarea" aria-describedby="contentHelp"></ckeditor>
+        <small id="contentHelp" class="form-text text-muted">Descriu la pràctica mitjançant l'editor de text enriquit</small>
+    </div>
 
-    <input type=text [(ngModel)]="tags">
+    <div class="form-group">
+        <label for="tagsInput">Etiquetes</label>
+        <input type="text" class="form-control" id="tagsInput" aria-describedby="tagsHelp" [(ngModel)]="tags">
+        <small id="tagsHelp" class="form-text text-muted">Afegeix totes les etiquetes separades per espais (ex: #mp01 #p1)</small>
+    </div>
 
     <button type="button" class="btn btn-primary mr-1" (click)="saveData()">Guardar</button>
     <button type="button" class="btn btn-primary" (click)="resetData()">Reiniciar</button>

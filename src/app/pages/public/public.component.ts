@@ -8,14 +8,13 @@ import { FirebaseDBService } from 'src/app/services/firebasedb.service';
   styleUrls: ['./public.component.css']
 })
 export class PublicComponent implements OnInit {
-  public portfolio: string[];
+  public portfolio: any[];
 
   constructor(private firedb: FirebaseDBService) {
     this.firedb.getPortfolio().subscribe(
       (originalPortfolio: any[]) => {
-        originalPortfolio.forEach(element => {
-          this.portfolio.push(element.content); 
-        });
+        this.portfolio = originalPortfolio;
+        console.log(this.portfolio);
       }
     );
   }
